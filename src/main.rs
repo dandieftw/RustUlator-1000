@@ -7,6 +7,7 @@ use std::io;
 
 fn main(){
     let mut input: String = String::new();
+    let mut history: Vec<f32> = Vec::new();
    
     println!("Welcome to RustUlator 1000");
         println!("To continue press ENTER");
@@ -17,7 +18,6 @@ fn main(){
     .expect("failed to read");
     while input.trim() != "q" {   
            
-
         
             //%%%%%%%%%%%%%%%%%%%%%%%%%%// First Number Input
         let mut a1 = String::new();
@@ -87,6 +87,18 @@ fn main(){
             println!("The result is...");
             println!("Drumroll...");
             println!("{}", result);
+            history.push(result);
+
+            let mut történelem: String = String::new();
+            println!("To show history, press 'h'.");
+            println!("Otherwise press ENTER to continue.");
+            io::stdin()
+                    .read_line(&mut történelem)
+                    .expect("failed to read");
+                    if történelem.trim() == "h" {println!("{:?}", history)} else {
+                        continue;
+                    }
+                    
             }
 
     
